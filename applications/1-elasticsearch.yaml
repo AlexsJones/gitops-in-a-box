@@ -1,0 +1,23 @@
+apiVersion: v1
+items:
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    name: elasticsearch
+    namespace: argocd
+  spec:
+    destination:
+      namespace: monitoring
+      server: https://kubernetes.default.svc
+    project: default
+    source:
+      chart: elasticsearch
+      helm:
+        parameters:
+        - name: antiAffinity
+          value: soft
+        valueFiles:
+        - values.yaml
+      repoURL: https://helm.elastic.co
+      targetRevision: 7.6.1
+kind: List
