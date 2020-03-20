@@ -7,6 +7,18 @@ _An example of how to work with ArgoCD_
 I wanted to show how little code is required to get a declarative ArgoCD pipeline up and running. So with some help from [kind](https://kind.sigs.k8s.io) I did.
 
 
+## The demo concept
+
+If you are new to ArgoCD go check it [out](https://argoproj.github.io/argo-cd/).
+
+We're going to leverage the Helm chart capability of ArgoCD.
+Whilst ordinarily the git source would be what most people are using,
+I wanted to illustrate how this platform interplays with Helm which is especially cool as it can be driven via CRD.
+
+This is a simple view of how the fundamental architecture is pinned together.
+
+<img src="res/gitops.png" width="1000"/>
+
 ## Tools you'll need installed
 - kubectl
 - [Kind](https://kind.sigs.k8s.io/docs/user/quick-start)
